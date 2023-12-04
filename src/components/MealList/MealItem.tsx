@@ -15,7 +15,6 @@ function MealItem({ id,title, imageUrl,duration,complexity,affordabilty,onPress 
           <Image source={{ uri: imageUrl }} style={styles.image} />
           <Text style={styles.title}>{title}</Text>
         </View>
-      
         </View>
        <MealDetails duration={duration} complexity={complexity} affordability={affordabilty}/>
       </Pressable>
