@@ -9,6 +9,14 @@ function FavouriteScreen(){
   const favoriteMeals = MEALS.filter(Meal => favoriteMealsCtx.ids.includes(Meal.id))
   console.log(favoriteMeals)
 
+  if(favoriteMeals.length === 0){
+    return (
+    <View style={styles.rootContainer}>
+      <Text style={styles.text}>You have no favorite meals yet.</Text>
+    </View>
+    )
+  }
+
   return (
     <MealsList items ={favoriteMeals}/>
   )
@@ -16,4 +24,15 @@ function FavouriteScreen(){
 
 export default FavouriteScreen
 
-const styles = StyleSheet.create({})
+const styles = StyleSheet.create({
+rootContainer:{
+  flex:1,
+  justifyContent:"center",
+  alignItems:"center",
+},
+text:{
+  fontSize:30,
+  fontWeight:"bold",
+  color:"white"
+}
+})
