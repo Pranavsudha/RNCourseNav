@@ -14,6 +14,8 @@ import { AntDesign } from '@expo/vector-icons';
 import { Entypo } from '@expo/vector-icons';
 import React from "react";
 import FavoriteContextProvider from "./store/context/favoriteContext";
+import { Provider } from "react-redux";
+import { store } from "./store/redux/store";
 
 const Stack = createNativeStackNavigator();
 const Drawer = createDrawerNavigator();
@@ -47,7 +49,7 @@ export default function App() {
   return (
     <>
       <StatusBar style="light" />
-      <FavoriteContextProvider>
+      <Provider store={store}>
       <NavigationContainer>
         <Stack.Navigator
          screenOptions={{ headerStyle: { backgroundColor: "#351401" },
@@ -82,7 +84,9 @@ export default function App() {
           />
         </Stack.Navigator>
       </NavigationContainer>
-      </FavoriteContextProvider>
+      </Provider>
+      
+
     </>
   );
 }
