@@ -3,7 +3,7 @@ import { StyleSheet, Text, View,Button } from "react-native";
 import CategoryScreen from "./src/screens/CategoryScreen";
 import { NavigationContainer } from "@react-navigation/native";
 import MealsOverviewScreen from "./src/screens/MealsOverviewScreen";
-import { createDrawerNavigator } from '@react-navigation/drawer';
+
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import MealsItemScreen from "./src/screens/MealsItemScreen";
 import MealDetails from "./src/components/MealDetails";
@@ -18,32 +18,6 @@ import { Provider } from "react-redux";
 import { store } from "./store/redux/store";
 
 const Stack = createNativeStackNavigator();
-const Drawer = createDrawerNavigator();
-
-function DrawerNavigation(){
-  return <Drawer.Navigator screenOptions={{ headerStyle: { backgroundColor: "#351401" },
-  headerTintColor: "white",
-  sceneContainerStyle: { backgroundColor: "#3f2f25" },
-  drawerContentStyle:{backgroundColor:'#351401'},
-  drawerInactiveTintColor:"white",
-  drawerActiveTintColor:"#351401",
-  drawerActiveBackgroundColor:"#e4baa1"
-}}
-   >
-    <Drawer.Screen name="Categories" component={CategoryScreen}  options={{
-              title: "All Categories",
-             drawerIcon: ({ color, size }) => (
-              <MaterialIcons name="category" size={24} color="white" />
-              ),
-            }}  />
-    <Drawer.Screen name="Favorites" component={FavouriteScreen}  options={{
-              title: "Favorites",
-             drawerIcon: ({ color, size }) => (
-              <Entypo name="star" size={24} color="white" />
-              ),
-            }}  />
-  </Drawer.Navigator>
-}
 
 export default function App() {
   return (
@@ -52,17 +26,17 @@ export default function App() {
       <Provider store={store}>
       <NavigationContainer>
         <Stack.Navigator
-         screenOptions={{ headerStyle: { backgroundColor: "#351401" },
-         headerTintColor: "white",
-         contentStyle:{backgroundColor:'#351401'},
-  }}
+          screenOptions={{
+            headerStyle: { backgroundColor: "#351401" },
+            headerTintColor: "white",
+            contentStyle: { backgroundColor: "black" },
+          }}
         >
           <Stack.Screen
-            name="DrawerNavigation"
-            component={DrawerNavigation}
+            name="CategoryScreen"
+            component={CategoryScreen}
             options={{
               title: "All Categories",
-              headerShown:false
             }}
           />
           <Stack.Screen

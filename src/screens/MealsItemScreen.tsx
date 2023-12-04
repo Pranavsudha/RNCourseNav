@@ -1,5 +1,5 @@
 import { StyleSheet, Text, View, Image, ScrollView, Button } from "react-native";
-import React, { useContext, useLayoutEffect } from "react";
+import React, { useLayoutEffect } from "react";
 import MealDetails from "../components/MealDetails";
 import { MEALS } from "../../dummy-data";
 
@@ -36,7 +36,7 @@ const MealsItemScreen = ({ route,navigation }) => {
   useLayoutEffect(()=>{
     navigation.setOptions({
         headerRight:()=>{
-            return <IconButton onPress={changeFavoriteStatusHandler} icon={mealIsFavorite ? 'star' : 'star-outline'} color={'white'} />
+            return <IconButton onPress={headerButtonPressHandler} icon={'star'} color={'white'} />
         }
     })
   },[navigation,headerButtonPressHandler])
